@@ -1,0 +1,21 @@
+package hooks;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+
+public class Hooks {
+
+
+    @Before
+    public void setup() {
+
+        System.out.println("before methodu çalıştı");
+    }
+
+    @After
+    public void teardown() {
+
+        System.out.println("after methodu çalıştı");
+    }
+
+}

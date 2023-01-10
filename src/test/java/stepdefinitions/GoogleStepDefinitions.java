@@ -7,6 +7,8 @@ import org.junit.Assert;
 import pages.GoogleSearchPage;
 import utulities.Driver;
 
+// Yeni stepler bulundugundan dolayi varolan class i guncelleyebilirsiniz
+
 public class GoogleStepDefinitions {
 
     @Given("Kullanici google sayfasindadir")
@@ -31,4 +33,38 @@ public class GoogleStepDefinitions {
 
         Driver.closeDriver();
     }
+
+    @When("Kullanici cucumber kelimesini arar")
+    public void kullaniciCucumberKelimesiniArar() {
+
+        GoogleSearchPage sp = new GoogleSearchPage(Driver.getDriver());
+
+        sp.searchFor("cucumber");
+    }
+
+    @Then("Kullanici sayfada cucumber kelimesi gectigini dogrular")
+    public void kullaniciSayfadaCucumberKelimesiGectiginiDogrular() {
+
+        Assert.assertTrue(Driver.getDriver().getTitle().contains("cucumber"));
+
+        Driver.closeDriver();
+    }
+
+    @When("Kullanici selenium kelimesini arar")
+    public void kullaniciSeleniumKelimesiniArar() {
+
+        GoogleSearchPage sp = new GoogleSearchPage(Driver.getDriver());
+
+        sp.searchFor("selenium");
+    }
+
+    @Then("Kullanici sayfada selenium kelimesi gectigini dogrular")
+    public void kullaniciSayfadaSeleniumKelimesiGectiginiDogrular() {
+
+        Assert.assertTrue(Driver.getDriver().getTitle().contains("selenium"));
+
+        Driver.closeDriver();
+    }
+
+
 }
